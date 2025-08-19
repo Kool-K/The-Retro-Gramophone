@@ -298,6 +298,12 @@ body {
   background: #5a4127;
   transform: translateY(-2px);
 }
+/* remove blue bg for pause button on phones */
+.controls button,
+.toggle-rack-btn,
+.record-item {
+  -webkit-tap-highlight-color: transparent;
+}
 
 .handwritten-note {
   position: fixed;
