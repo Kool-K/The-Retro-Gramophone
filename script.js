@@ -115,10 +115,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function setupMobileRackToggle() {
     const toggleBtn = document.getElementById("toggle-rack-btn");
     const recordRack = document.querySelector(".record-rack");
+    const toggleArrow = toggleBtn.querySelector(".toggle-arrow");
 
     if (toggleBtn && recordRack) {
       toggleBtn.addEventListener("click", () => {
         recordRack.classList.toggle("rack-is-open");
+
+        // change arrow dep on state
+        if (recordRack.classList.contains("rack-is-open")) {
+          toggleArrow.textContent = "›"; // close (points right)
+        } else {
+          toggleArrow.textContent = "‹"; // open (points left)
+        }
       });
     }
   }
