@@ -414,11 +414,36 @@ body {
 }
 
 /* By default, hide the toggle button and scrollers on larger screens */
-.toggle-rack-btn,
-.scroller-buttons {
-  display: none;
+/* Find the existing .toggle-rack-btn rule in the media query and REPLACE it with this */
+
+.toggle-rack-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* FIX: Use fixed positioning relative to the screen */
+  position: fixed;
+  top: 50%;
+  /* FIX: Position based on the rack's width */
+  right: 230px; /* rack width (280px) - visible part (50px) */
+  transform: translateY(-50%);
+  width: 40px;
+  height: 80px;
+  background: var(--primary-accent);
+  color: var(--bg-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 10px 0 0 10px;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 10001; /* Keep it on top */
+  /* FIX: Add transition to move smoothly with the rack */
+  transition: right 0.4s ease-in-out;
 }
 
+/* This rule moves the button when the rack is open */
+.record-rack.rack-is-open + .toggle-rack-btn {
+  right: 280px; /* Position it at the edge of the open rack */
+}
 /* Mobile styles for phones in landscape mode */
 @media (max-height: 550px) and (orientation: landscape) {
   .record-rack {
@@ -464,28 +489,7 @@ body {
     transform: rotate(180deg);
   }
 
-  /* Scroll buttons styling */
-  .scroller-buttons {
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 10px;
-    right: 10px;
-    gap: 8px;
-    z-index: 12;
-    margin-bottom: 10px;
-  }
-
-  .scroll-btn {
-    width: 35px;
-    height: 35px;
-    border: 1px solid var(--primary-accent);
-    background: rgba(26, 18, 11, 0.9);
-    color: var(--secondary-accent);
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
-  }
+  
 
   /* Make rack header sticky */
   .rack-header {

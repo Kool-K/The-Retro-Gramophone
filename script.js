@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupControls();
     setupSortableDragAndDrop();
     setupMobileRackToggle();
-    setupCustomScrollers();
+    // setupCustomScrollers();
   }
 
   // music and ui
@@ -121,42 +121,5 @@ document.addEventListener("DOMContentLoaded", () => {
         recordRack.classList.toggle("rack-is-open");
       });
     }
-  }
-
-  function setupCustomScrollers() {
-    const scrollUpBtn = document.getElementById("scroll-up-btn");
-    const scrollDownBtn = document.getElementById("scroll-down-btn");
-    const recordsContainerEl = document.querySelector(".records-container");
-    let scrollInterval;
-
-    if (!scrollUpBtn || !scrollDownBtn || !recordsContainerEl) return;
-
-    const startScrolling = (direction) => {
-      stopScrolling();
-      scrollInterval = setInterval(() => {
-        recordsContainerEl.scrollTop += direction * 15; // Scroll by 15px
-      }, 50);
-    };
-
-    const stopScrolling = () => {
-      clearInterval(scrollInterval);
-    };
-
-    // For the UP button
-    scrollUpBtn.addEventListener("mousedown", () => startScrolling(-1));
-    scrollUpBtn.addEventListener("touchstart", () => startScrolling(-1), {
-      passive: true,
-    });
-
-    // For the DOWN button
-    scrollDownBtn.addEventListener("mousedown", () => startScrolling(1));
-    scrollDownBtn.addEventListener("touchstart", () => startScrolling(1), {
-      passive: true,
-    });
-
-    // Stop scrolling when mouse/touch is released
-    window.addEventListener("mouseup", stopScrolling);
-    window.addEventListener("touchend", stopScrolling);
-    window.addEventListener("touchcancel", stopScrolling);
   }
 });
