@@ -413,44 +413,17 @@ body {
   }
 }
 
-/* By default, hide the toggle button and scrollers on larger screens */
-/* Find the existing .toggle-rack-btn rule in the media query and REPLACE it with this */
-
+/* By default, hide the toggle button on larger screens */
 .toggle-rack-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* FIX: Use fixed positioning relative to the screen */
-  position: fixed;
-  top: 50%;
-  /* FIX: Position based on the rack's width */
-  right: 230px; /* rack width (280px) - visible part (50px) */
-  transform: translateY(-50%);
-  width: 40px;
-  height: 80px;
-  background: var(--primary-accent);
-  color: var(--bg-color);
-  border: none;
-  cursor: pointer;
-  border-radius: 10px 0 0 10px;
-  font-size: 24px;
-  font-weight: bold;
-  z-index: 10001; /* Keep it on top */
-  /* FIX: Add transition to move smoothly with the rack */
-  transition: right 0.4s ease-in-out;
+  display: none;
 }
 
-/* This rule moves the button when the rack is open */
-.record-rack.rack-is-open + .toggle-rack-btn {
-  right: 280px; /* Position it at the edge of the open rack */
-}
+
 /* Mobile styles for phones in landscape mode */
 @media (max-height: 550px) and (orientation: landscape) {
   .record-rack {
     right: 0;
     width: 280px;
-    /* FIX 1: Combine transforms for correct positioning */
-    /* FIX 2: Raise z-index to appear above all overlays */
     transform: translateY(-50%) translateX(calc(100% - 50px));
     z-index: 10000;
     transition: transform 0.4s ease-in-out;
@@ -459,18 +432,16 @@ body {
   }
 
   .record-rack.rack-is-open {
-    /* FIX 1: Also combine transforms for the open state */
     transform: translateY(-50%) translateX(0);
   }
 
-  /* Make sure toggle button is visible */
   .toggle-rack-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 50%;
-    left: -40px; /* Position outside the rack */
+    right: 50px; /* Positioned relative to the collapsed rack's visible edge */
     transform: translateY(-50%);
     width: 40px;
     height: 80px;
@@ -481,17 +452,18 @@ body {
     border-radius: 10px 0 0 10px;
     font-size: 24px;
     font-weight: bold;
-    /* FIX 2: Ensure button is on top */
     z-index: 10001;
+    transition: right 0.4s ease-in-out;
   }
 
-  .record-rack.rack-is-open .toggle-rack-btn span {
+  .record-rack.rack-is-open + .toggle-rack-btn {
+    right: 280px; /* Position it at the edge of the open rack */
+  }
+  
+  .record-rack.rack-is-open .toggle-arrow {
     transform: rotate(180deg);
   }
 
-  
-
-  /* Make rack header sticky */
   .rack-header {
     position: sticky;
     top: 0;
@@ -501,7 +473,6 @@ body {
     margin-bottom: 10px;
   }
 
-  /* Add some padding to the records container */
   .records-container {
     padding-bottom: 20px;
   }
