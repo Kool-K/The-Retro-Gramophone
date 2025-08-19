@@ -398,12 +398,15 @@ body {
 .overlay-content {
   font-family: "Cinzel", serif;
   font-size: 1.5rem;
+  padding: 20px;
+  line-height: 1.5;
 }
 .rotate-icon {
   width: 60px;
   height: 60px;
   margin-bottom: 20px;
   fill: var(--secondary-accent);
+  animation: rotate-anim 2s linear infinite;
 }
 
 /* This media query will show the overlay ONLY on mobile-sized screens in portrait mode */
@@ -417,7 +420,6 @@ body {
 .toggle-rack-btn {
   display: none;
 }
-
 
 /* Mobile styles for phones in landscape mode */
 @media (max-height: 550px) and (orientation: landscape) {
@@ -459,7 +461,7 @@ body {
   .record-rack.rack-is-open + .toggle-rack-btn {
     right: 280px; /* Position it at the edge of the open rack */
   }
-  
+
   .record-rack.rack-is-open .toggle-arrow {
     transform: rotate(180deg);
   }
@@ -493,4 +495,45 @@ body {
 
 .record-rack::-webkit-scrollbar-thumb:hover {
   background: #8a6137;
+}
+
+@keyframes rotate-anim {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ADD this entire new block at the end of styles.css */
+
+/* Custom styles for tablets and medium screens in landscape */
+@media (orientation: landscape) and (min-height: 700px) {
+  .vintage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 95vh;
+  }
+
+  .hero {
+    flex-grow: 1; /* Allows the hero to take up available space */
+    display: flex;
+    align-items: center; /* Vertically center the gramophone */
+    margin-top: 0;
+  }
+
+  #gramophone-img {
+    max-width: 550px; /* Make the gramophone larger */
+  }
+
+  .record-rack {
+    right: 50px; /* Give it more space from the edge */
+  }
+
+  .handwritten-note {
+    bottom: 30px;
+    left: 30px;
+  }
 }
