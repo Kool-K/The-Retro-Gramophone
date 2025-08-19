@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setupControls();
         setupSortableDragAndDrop();
     }
-    
+
     // music and ui
     function playSong(songSrc, songLabel) {
         if (!songSrc) return;
@@ -65,7 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // drag drop logic + haptic feedback (vibrate)
     function setupSortableDragAndDrop() {
         const scrollThreshold = 200; // Pixels to scroll before sticky is triggered
-
+        const recordItems = document.querySelectorAll('.record-item');
+        recordItems.forEach(item => {
+            item.addEventListener('contextmenu', (e) => e.preventDefault());
+        });
         new Sortable(recordsContainer, {
             group: {
                 name: 'records',
@@ -73,21 +76,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 put: false
             },
             animation: 150,
-            sort: false,
-            onStart: function () {
-                // Haptic feedback
-                if (window.navigator && window.navigator.vibrate) {
-                    navigator.vibrate(50);
-                }
-                // Check scroll position and make gramophone sticky
-                if (window.scrollY > scrollThreshold) {
-                    gramophoneDropzone.classList.add('gramophone-sticky');
-                }
-            },
-            onEnd: function () {
-                // NEW: Always remove sticky class when drag ends
-                gramophoneDropzone.classList.remove('gramophone-sticky');
-            }
+            sort: false
+            // uncomment this part only if u want portrait mode option -> later on if converted
+            //*,
+            // onStart: function () {
+            //     // Haptic feedback
+            //     if (window.navigator && window.navigator.vibrate) {
+            //         navigator.vibrate(50);
+            //     }
+            //     // Check scroll position and make gramophone sticky
+            //     if (window.scrollY > scrollThreshold) {
+            //         gramophoneDropzone.classList.add('gramophone-sticky');
+            //     }
+            // },
+            // onEnd: function () {
+            //     // NEW: Always remove sticky class when drag ends
+            //     gramophoneDropzone.classList.remove('gramophone-sticky');
         });
 
         new Sortable(gramophoneDropzone, {
