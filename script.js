@@ -1,7 +1,6 @@
-// script.js with SortableJS
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Element Selectors
+    // element selector
     const gramophoneDropzone = document.getElementById('gramophone-dropzone');
     const recordsContainer = document.querySelector('.records-container');
     const audioPlayer = document.getElementById('audio-player');
@@ -10,34 +9,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const nowPlayingDisplay = document.getElementById('now-playing');
     const subtitle = document.querySelector('.subtitle');
 
-    // state and helpers
+    //state and helper
     const clickSound = new Audio('music/click.mp3');
+    const isMobile = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
-    //initialization
+    // initialization
     initialize();
 
     function initialize() {
         createFloatingNotes(15);
         setupControls();
-        setupSortableDragAndDrop(); 
+        setupSortableDragAndDrop();
+
+        // scroll listener ONLY on mobile devices
+        if (isMobile) {
+            window.addEventListener('scroll', handleStickyGramophone);
+        }
+    }
+    
+    // Sticky Gramophone on mobile scroll 
+    function handleStickyGramophone() {
+        const scrollThreshold = 200; //pixels to scroll before it becomes sticky
+        if (window.scrollY > scrollThreshold) {
+            gramophoneDropzone.classList.add('gramophone-sticky');
+        } else {
+            gramophoneDropzone.classList.remove('gramophone-sticky');
+        }
     }
 
-    // music and ui logic
+    // music and ui
     function playSong(songSrc, songLabel) {
         if (!songSrc) return;
-
         audioPlayer.src = songSrc;
         audioPlayer.play();
         clickSound.play();
-
-        nowPlayingDisplay.textContent = `Now Playing 🎶 : ${songLabel}`;
+        nowPlayingDisplay.textContent = `Now Playing: ${songLabel}`;
         subtitle.style.opacity = '0';
         gramophoneDropzone.classList.add('playing');
         playBtn.style.display = 'none';
         pauseBtn.style.display = 'inline-block';
     }
 
-    // event listners and setup
+    // event listeners
     function setupControls() {
         playBtn.addEventListener('click', () => {
             if (audioPlayer.src && audioPlayer.paused) {
@@ -66,41 +79,40 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // drag drop logic with sortable js
+    // drag drop logic + haptic feedback (vibrate)
     function setupSortableDragAndDrop() {
-        // 1. Make the records in the rack draggable
         new Sortable(recordsContainer, {
             group: {
                 name: 'records',
-                pull: 'clone', // on dragging a record clone it so list remains intact 
+                pull: 'clone',
                 put: false
             },
             animation: 150,
-            sort: false, // don't allow auto sort in the rack
+            sort: false,
+            onStart: function () {
+                if (window.navigator && window.navigator.vibrate) {
+                    navigator.vibrate(50); // Haptic feedback!
+                }
+            }
         });
 
-        // Make the gramophone a drop zone , so discs can be dropped here
         new Sortable(gramophoneDropzone, {
-            group: 'records', // belongs to the same group to accept drops
+            group: 'records',
             animation: 150,
-            scroll: true, // Enable auto-scroll
-            scrollSensitivity: 100, // How close to the edge to start scrolling (in px)
-            scrollSpeed: 15, // scroll speed
+            scroll: true,
+            scrollSensitivity: 100,
+            scrollSpeed: 15,
             onAdd: function (evt) {
-                // function is triggered when a record is dropped on the gphone
-                const droppedRecord = evt.item; // The HTML element of the record that was dropped
+                const droppedRecord = evt.item;
                 const songSrc = droppedRecord.dataset.song;
                 const songLabel = droppedRecord.dataset.label;
-
                 playSong(songSrc, songLabel);
-
-                // remove the cloned record from the gphone area immediately after dropping , clears visual
                 droppedRecord.remove();
             }
         });
     }
 
-    // for decoration 
+    // decoration functions
     function createFloatingNotes(count) {
         const notes = ['♪', '♫', '♩', '♬'];
         for (let i = 0; i < count; i++) {
@@ -115,4 +127,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-

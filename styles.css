@@ -321,6 +321,20 @@ body {
   font-style: italic;
 }
 
+/* making drag drop process easier for last records on phone */
+.gramophone-sticky {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px; /* Make it smaller */
+  background: rgba(26, 18, 11, 0.9);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  z-index: 1000; /* Ensure it's on top of everything */
+}
+
 /*Responsivity for phones*/
 @media (max-width: 1024px) {
   .record-rack {
