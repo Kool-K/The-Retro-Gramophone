@@ -24,7 +24,7 @@ body {
   background-attachment: fixed;
 }
 
-/* --- ATMOSPHERIC ELEMENTS --- */
+/* Atmospheric elts - decors */
 .background-texture,
 .vintage-overlay {
   position: fixed;
@@ -71,7 +71,7 @@ body {
   }
 }
 
-/* --- LAYOUT & HEADER --- */
+/* header + layout
 .vintage-container {
   max-width: 1400px;
   margin: 0 auto;
@@ -95,15 +95,14 @@ body {
   transition: opacity 0.5s;
 }
 
-/* --- HERO SCENE --- */
+/* -hero scene -> gramophone image*/
 .hero {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  /* We removed height and min-height, and added margin-top */
-  margin-top: 5vh; /* You can adjust this value! Try 5vh or 10px */
-  padding-bottom: 20px; /* Adds a little space below the gramophone */
+  margin-top: 5vh; 
+  padding-bottom: 20px; 
 }
 .scene {
   position: relative;
@@ -126,7 +125,7 @@ body {
   position: relative;
 }
 
-/* Instructions */
+/* Instructions fpr tap and drop*/
 .drop-instruction,
 .tap-instruction {
   position: absolute;
@@ -140,19 +139,20 @@ body {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
-  display: none; /* Hidden by default, JS will show the correct one */
+  display: none; 
+  /* hidden by def js will show correct one */
 }
 #gramophone-dropzone.show-drop-instruction .drop-instruction,
 #gramophone-dropzone.show-tap-instruction .tap-instruction {
   opacity: 0.8;
 }
 
-/* Vinyl Record & Animations */
+/* record / vinyl and animations */
 #vinyl-record {
   position: absolute;
   top: 52%;
   left: 50%;
-  width: 180px; /* Adjust size to fit platter */
+  width: 180px; 
   transform: translate(-50%, -50%);
   z-index: -1;
   pointer-events: none;
@@ -195,7 +195,7 @@ body {
   }
 }
 
-/* --- RECORD RACK --- */
+/* records/track shelf */
 .record-rack {
   position: fixed;
   right: 30px;
@@ -221,12 +221,10 @@ body {
   gap: 20px;
 }
 .record-item {
-  /* ADD THESE THREE LINES */
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  /* Your existing styles below are fine */
   text-align: center;
   transition: transform 0.3s;
 }
@@ -250,7 +248,7 @@ body {
   border: 1px solid var(--primary-accent);
 }
 
-/* On Desktop: Draggable Records */
+/* On Laptop/Desktop: Draggable Records */
 .is-desktop .record-image {
   cursor: grab;
 }
@@ -263,19 +261,17 @@ body {
   cursor: pointer;
 }
 
-/* --- CONTROLS & FOOTER --- */
-/* Replace your old #now-playing rule with this one */
+/* footer and controls */
 #now-playing {
   color: var(--text-color);
   font-style: italic;
   font-size: 1.1rem;
   transition: opacity 0.5s;
 }
-/* Add this new rule */
 #now-playing:not(:empty) {
   min-width: 250px;
   text-align: right;
-  padding-right: 20px; /* Adds space between the text and the button */
+  padding-right: 20px; 
 }
 
 .controls {
@@ -325,7 +321,7 @@ body {
   font-style: italic;
 }
 
-/* --- RESPONSIVE DESIGN FOR MOBILE --- */
+/*Responsivity for phones*/
 @media (max-width: 1024px) {
   .record-rack {
     position: static;
@@ -379,7 +375,7 @@ body {
     font-size: 1.5rem;
   }
   .controls {
-    flex-direction: column; /* Stacks items vertically on small screens */
+    flex-direction: column; /* vertical stacking on small screens */
     gap: 15px;
   }
   #now-playing:not(:empty) {

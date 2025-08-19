@@ -20,10 +20,10 @@ The joy it brought him was infectious! It made me realize that this could be a w
 
 Making this project your own is super easy! Just follow these three steps.
 
-### ### Step 1: Get the Files
+### Step 1: Get the Files
 Download or clone this repository to your computer.
 
-### ### Step 2: Add Your Music Tracks
+### Step 2: Add Your Music Tracks
 Inside the project folder, you'll find a folder named `music`. This is where you'll put all your `.mp3` song files.
 
 For the best results, name your files something simple and web-friendly (e.g., `lag-jaa-gale.mp3`).

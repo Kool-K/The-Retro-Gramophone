@@ -1,7 +1,7 @@
-// script.js (New and Improved with SortableJS)
+// script.js with SortableJS
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- ELEMENT SELECTORS ---
+    // Element Selectors
     const gramophoneDropzone = document.getElementById('gramophone-dropzone');
     const recordsContainer = document.querySelector('.records-container');
     const audioPlayer = document.getElementById('audio-player');
@@ -10,19 +10,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const nowPlayingDisplay = document.getElementById('now-playing');
     const subtitle = document.querySelector('.subtitle');
 
-    // --- STATE & HELPERS ---
+    // state and helpers
     const clickSound = new Audio('music/click.mp3');
 
-    // --- INITIALIZATION ---
+    //initialization
     initialize();
 
     function initialize() {
         createFloatingNotes(15);
         setupControls();
-        setupSortableDragAndDrop(); // This is our new, unified function
+        setupSortableDragAndDrop(); 
     }
 
-    // --- MUSIC & UI LOGIC ---
+    // music and ui logic
     function playSong(songSrc, songLabel) {
         if (!songSrc) return;
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pauseBtn.style.display = 'inline-block';
     }
 
-    // --- EVENT LISTENERS & SETUP ---
+    // event listners and setup
     function setupControls() {
         playBtn.addEventListener('click', () => {
             if (audioPlayer.src && audioPlayer.paused) {
@@ -66,41 +66,41 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // --- THE NEW DRAG-AND-DROP LOGIC using SortableJS ---
+    // drag drop logic with sortable js
     function setupSortableDragAndDrop() {
         // 1. Make the records in the rack draggable
         new Sortable(recordsContainer, {
             group: {
                 name: 'records',
-                pull: 'clone', // Clone the item when dragging, so the original stays in the list
+                pull: 'clone', // on dragging a record clone it so list remains intact 
                 put: false
             },
             animation: 150,
-            sort: false, // Don't allow sorting within the rack itself
+            sort: false, // don't allow auto sort in the rack
         });
 
-        // 2. Make the gramophone a drop zone
+        // Make the gramophone a drop zone , so discs can be dropped here
         new Sortable(gramophoneDropzone, {
-            group: 'records', // Belongs to the same group to accept drops
+            group: 'records', // belongs to the same group to accept drops
             animation: 150,
-            scroll: true, // Enable auto-scrolling!
+            scroll: true, // Enable auto-scroll
             scrollSensitivity: 100, // How close to the edge to start scrolling (in px)
-            scrollSpeed: 15, // Speed of scrolling
+            scrollSpeed: 15, // scroll speed
             onAdd: function (evt) {
-                // This function is triggered when a record is dropped onto the gramophone
+                // function is triggered when a record is dropped on the gphone
                 const droppedRecord = evt.item; // The HTML element of the record that was dropped
                 const songSrc = droppedRecord.dataset.song;
                 const songLabel = droppedRecord.dataset.label;
 
                 playSong(songSrc, songLabel);
 
-                // Remove the cloned record from the gramophone area immediately after dropping
+                // remove the cloned record from the gphone area immediately after dropping , clears visual
                 droppedRecord.remove();
             }
         });
     }
 
-    // --- DECORATIVE FUNCTIONS ---
+    // for decoration 
     function createFloatingNotes(count) {
         const notes = ['♪', '♫', '♩', '♬'];
         for (let i = 0; i < count; i++) {
