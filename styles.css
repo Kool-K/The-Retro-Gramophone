@@ -423,15 +423,19 @@ body {
 @media (max-height: 550px) and (orientation: landscape) {
   .record-rack {
     right: 0;
-    width: 280px; /* Slightly wider for better visibility */
-    transform: translateX(calc(100% - 50px)); /* Hide it, leaving 50px for the button */
+    width: 280px;
+    /* FIX 1: Combine transforms for correct positioning */
+    /* FIX 2: Raise z-index to appear above all overlays */
+    transform: translateY(-50%) translateX(calc(100% - 50px));
+    z-index: 10000;
     transition: transform 0.4s ease-in-out;
-    max-height: 80vh; /* Limit height */
-    overflow-y: auto; /* Enable scrolling */
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .record-rack.rack-is-open {
-    transform: translateX(0);
+    /* FIX 1: Also combine transforms for the open state */
+    transform: translateY(-50%) translateX(0);
   }
 
   /* Make sure toggle button is visible */
@@ -452,7 +456,8 @@ body {
     border-radius: 10px 0 0 10px;
     font-size: 24px;
     font-weight: bold;
-    z-index: 11;
+    /* FIX 2: Ensure button is on top */
+    z-index: 10001;
   }
 
   .record-rack.rack-is-open .toggle-rack-btn span {
