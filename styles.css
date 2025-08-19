@@ -41,7 +41,7 @@ body {
   z-index: -2;
 }
 .vintage-overlay {
-   background: radial-gradient(circle, transparent 80%, var(--bg-color) 95%); 
+  background: radial-gradient(circle, transparent 80%, var(--bg-color) 95%);
   opacity: 0.7;
   z-index: 100;
 }
@@ -101,8 +101,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 5vh; 
-  padding-bottom: 20px; 
+  margin-top: 5vh;
+  padding-bottom: 20px;
 }
 .scene {
   position: relative;
@@ -139,7 +139,7 @@ body {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.5s ease;
-  display: none; 
+  display: none;
   /* hidden by def js will show correct one */
 }
 #gramophone-dropzone.show-drop-instruction .drop-instruction,
@@ -152,7 +152,7 @@ body {
   position: absolute;
   top: 52%;
   left: 50%;
-  width: 180px; 
+  width: 180px;
   transform: translate(-50%, -50%);
   z-index: -1;
   pointer-events: none;
@@ -273,7 +273,7 @@ body {
 #now-playing:not(:empty) {
   min-width: 250px;
   text-align: right;
-  padding-right: 20px; 
+  padding-right: 20px;
 }
 
 .controls {
@@ -322,24 +322,6 @@ body {
   padding: 20px;
   font-style: italic;
 }
-
-/* making drag drop process easier for last records on phone */
-/* uncomment this only if u want portrait mode orientation on phone */
-/* .gramophone-sticky {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(26, 18, 11, 0.9);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  z-index: 1000; /* Ensure it's on top of everything */
-/* } */
-/* sticky targeting the image, not the container */
-/* .gramophone-sticky #gramophone-img {
-  max-width: 150px;
-} */ 
 
 /*Responsivity for phones*/
 @media (max-width: 1024px) {
@@ -431,55 +413,35 @@ body {
   }
 }
 
+/* By default, hide the toggle button and scrollers on larger screens */
+.toggle-rack-btn,
+.scroller-buttons {
+  display: none;
+}
 
-/* for styling ux in portrait */
-/* Add this new media query for a portrait-mode fallback */
-
-
-/* @media screen and (max-width: 768px) and (orientation: portrait) {
- .record-rack {
-    position: static; /* Un-fix it from the side */
-    /* transform: none;
-    margin: 40px auto 20px auto; /* Center it below the gramophone */
-    /* width: 90%; */
-    /*max-height: none; /* Allow it to take up its full height */
-    /*overflow-y: visible; Disable the internal scrollbar */
-  /*} */
-/*
-  .records-container {
-    flex-direction: row; /* Lay out records in a wrapping row */
-    /*flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-} 
-
-*/
-
-/* for phones there was overlap issue so added collapsible sidebar like button */
-/* Collapsible Sidebar Logic for Mobile */
-@media (max-width: 768px) {
+/* Mobile styles for phones in landscape mode */
+@media (max-height: 550px) and (orientation: landscape) {
   .record-rack {
-    /* Adjust initial position and add transition */
     right: 0;
-    width: 260px; /* Give it a fixed width */
-    transform: translateX(calc(100% - 45px)); /* Hide it, leaving 45px for the button */
+    width: 280px; /* Slightly wider for better visibility */
+    transform: translateX(calc(100% - 50px)); /* Hide it, leaving 50px for the button */
     transition: transform 0.4s ease-in-out;
+    max-height: 80vh; /* Limit height */
+    overflow-y: auto; /* Enable scrolling */
   }
 
   .record-rack.rack-is-open {
-    /* When open, slide it fully into view */
     transform: translateX(0);
   }
 
+  /* Make sure toggle button is visible */
   .toggle-rack-btn {
-    /* Styles for new button */
-    display: flex; /* Make it visible only on mobile */
+    display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     top: 50%;
-    left: 0;
+    left: -40px; /* Position outside the rack */
     transform: translateY(-50%);
     width: 40px;
     height: 80px;
@@ -494,12 +456,63 @@ body {
   }
 
   .record-rack.rack-is-open .toggle-rack-btn span {
-    /* Flip the arrow when open */
     transform: rotate(180deg);
+  }
+
+  /* Scroll buttons styling */
+  .scroller-buttons {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 10px;
+    right: 10px;
+    gap: 8px;
+    z-index: 12;
+    margin-bottom: 10px;
+  }
+
+  .scroll-btn {
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--primary-accent);
+    background: rgba(26, 18, 11, 0.9);
+    color: var(--secondary-accent);
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  /* Make rack header sticky */
+  .rack-header {
+    position: sticky;
+    top: 0;
+    background: rgba(26, 18, 11, 0.95);
+    z-index: 10;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Add some padding to the records container */
+  .records-container {
+    padding-bottom: 20px;
   }
 }
 
-/* Hide toggle button on larger screens */
-.toggle-rack-btn {
-  display: none;
+/* Custom scrollbar for webkit browsers */
+.record-rack::-webkit-scrollbar {
+  width: 6px;
+}
+
+.record-rack::-webkit-scrollbar-track {
+  background: rgba(161, 116, 66, 0.2);
+  border-radius: 10px;
+}
+
+.record-rack::-webkit-scrollbar-thumb {
+  background: var(--primary-accent);
+  border-radius: 10px;
+}
+
+.record-rack::-webkit-scrollbar-thumb:hover {
+  background: #8a6137;
 }
