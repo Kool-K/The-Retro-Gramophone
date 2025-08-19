@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
     gramophoneDropzone.classList.add("playing");
     playBtn.style.display = "none";
     pauseBtn.style.display = "inline-block";
+    // remove blue bg
+    pauseBtn.blur();
+
   }
 
   // event listeners
@@ -43,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clickSound.play();
         playBtn.style.display = "none";
         pauseBtn.style.display = "inline-block";
+        pauseBtn.blur(); 
         gramophoneDropzone.classList.add("playing");
       }
     });
