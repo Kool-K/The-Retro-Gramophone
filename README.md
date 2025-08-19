@@ -2,7 +2,7 @@
 
 A beautiful, interactive music player designed to bring the magic of classic tunes to the grandparents we love. Built with ❤️, and now available for everyone to share!
 
-### 🚀 [View the Live Site Here!] 👉 (https://kool-k.github.io/The-Retro-Gramophone/) 
+### 🚀 View the Live Site Here! 👉 (https://kool-k.github.io/The-Retro-Gramophone/) 
 
 ## The Story Behind the Music
 
