@@ -2,6 +2,8 @@
 
 A beautiful, interactive music player designed to bring the magic of classic tunes to the grandparents we love. Built with ❤️, and now available for everyone to share!
 
+### 🚀 [View the Live Site Here!] 👉 (https://kool-k.github.io/The-Retro-Gramophone/) 
+
 ## The Story Behind the Music
 
 This project started as a special 85th birthday gift for my Ajoba (grandfather). His lifelong love for old, classic melodies from the golden era inspired me to create a digital 'gramophone' where he could listen to his favorite songs with a simple, nostalgic interface.
