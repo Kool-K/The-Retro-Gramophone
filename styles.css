@@ -1,0 +1,389 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #1a120b;
+  --text-color: #e5d9b6;
+  --primary-accent: #a17442;
+  --secondary-accent: #f7e1b5;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Playfair Display", serif;
+  overflow-x: hidden;
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+/* --- ATMOSPHERIC ELEMENTS --- */
+.background-texture,
+.vintage-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.background-texture {
+  background-image: url("images/vintage-wallpaper.jpg");
+  background-size: cover;
+  opacity: 0.1;
+  z-index: -2;
+}
+.vintage-overlay {
+  background: radial-gradient(circle, transparent 50%, var(--bg-color) 90%);
+  opacity: 0.8;
+  z-index: 100;
+}
+
+.floating-note {
+  position: fixed;
+  color: rgba(247, 225, 181, 0.2);
+  font-size: 24px;
+  animation: floatUp 20s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(10vh);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* --- LAYOUT & HEADER --- */
+.vintage-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.vintage-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.vintage-header h1 {
+  font-family: "Cinzel", serif;
+  font-size: 2.8rem;
+  color: var(--secondary-accent);
+  text-shadow: 2px 2px 4px var(--shadow-color);
+}
+.subtitle {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  transition: opacity 0.5s;
+}
+
+/* --- HERO SCENE --- */
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* We removed height and min-height, and added margin-top */
+  margin-top: 5vh; /* You can adjust this value! Try 5vh or 10px */
+  padding-bottom: 20px; /* Adds a little space below the gramophone */
+}
+.scene {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#gramophone-dropzone {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+#gramophone-img {
+  width: 100%;
+  max-width: 450px;
+  filter: drop-shadow(0 10px 20px var(--shadow-color));
+  transition: transform 0.5s ease;
+  position: relative;
+}
+
+/* Instructions */
+.drop-instruction,
+.tap-instruction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--secondary-accent);
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px var(--bg-color);
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: none; /* Hidden by default, JS will show the correct one */
+}
+#gramophone-dropzone.show-drop-instruction .drop-instruction,
+#gramophone-dropzone.show-tap-instruction .tap-instruction {
+  opacity: 0.8;
+}
+
+/* Vinyl Record & Animations */
+#vinyl-record {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: 180px; /* Adjust size to fit platter */
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.gramophone-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle,
+    rgba(247, 225, 181, 0.2) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -2;
+}
+
+#gramophone-dropzone.playing #vinyl-record {
+  opacity: 1;
+  z-index: 3;
+  animation: spin 3s linear infinite;
+}
+#gramophone-dropzone.playing .gramophone-glow {
+  opacity: 1;
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* --- RECORD RACK --- */
+.record-rack {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(26, 18, 11, 0.8);
+  border: 2px solid var(--primary-accent);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px var(--shadow-color);
+  z-index: 10;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.rack-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--secondary-accent);
+}
+.records-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.record-item {
+  /* ADD THESE THREE LINES */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Your existing styles below are fine */
+  text-align: center;
+  transition: transform 0.3s;
+}
+.record-item:hover {
+  transform: translateY(-5px);
+}
+
+.record-image {
+  width: 80px;
+  transition: transform 0.3s, filter 0.3s;
+  filter: drop-shadow(0 0 5px var(--shadow-color));
+  border-radius: 50%;
+}
+.record-label {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--secondary-accent);
+  background: rgba(161, 116, 66, 0.3);
+  padding: 4px 10px;
+  border-radius: 15px;
+  border: 1px solid var(--primary-accent);
+}
+
+/* On Desktop: Draggable Records */
+.is-desktop .record-image {
+  cursor: grab;
+}
+.is-desktop .record-image:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+}
+/* On Mobile: Tapable Records */
+.is-mobile .record-item {
+  cursor: pointer;
+}
+
+/* --- CONTROLS & FOOTER --- */
+/* Replace your old #now-playing rule with this one */
+#now-playing {
+  color: var(--text-color);
+  font-style: italic;
+  font-size: 1.1rem;
+  transition: opacity 0.5s;
+}
+/* Add this new rule */
+#now-playing:not(:empty) {
+  min-width: 250px;
+  text-align: right;
+  padding-right: 20px; /* Adds space between the text and the button */
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid var(--primary-accent);
+  border-radius: 30px;
+  background: #3b2c1a;
+  color: var(--secondary-accent);
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  margin: 0 5px;
+}
+.controls button:hover {
+  background: #5a4127;
+  transform: translateY(-2px);
+}
+
+.handwritten-note {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(26, 18, 11, 0.7);
+  border: 1px solid var(--primary-accent);
+  padding: 15px;
+  border-radius: 5px;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.3rem;
+  color: var(--secondary-accent);
+  box-shadow: 3px 3px 10px var(--shadow-color);
+  z-index: 5;
+  transform: rotate(-3deg);
+}
+
+.vintage-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--primary-accent);
+  padding: 20px;
+  font-style: italic;
+}
+
+/* --- RESPONSIVE DESIGN FOR MOBILE --- */
+@media (max-width: 1024px) {
+  .record-rack {
+    position: static;
+    transform: none;
+    margin: 40px auto 20px auto;
+    width: 90%;
+    max-height: none;
+  }
+  .records-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  .hero {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 20px;
+  }
+
+  .handwritten-note {
+    position: static;
+    margin: 20px auto;
+    transform: none;
+    max-width: 300px;
+    text-align: center;
+  }
+  .vintage-header h1 {
+    font-size: 2rem;
+  }
+  #gramophone-img {
+    max-width: 350px;
+  }
+  #vinyl-record {
+    width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .records-container {
+    gap: 10px;
+  }
+  .record-image {
+    width: 60px;
+  }
+  .record-label {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+  .vintage-header h1 {
+    font-size: 1.5rem;
+  }
+  .controls {
+    flex-direction: column; /* Stacks items vertically on small screens */
+    gap: 15px;
+  }
+  #now-playing:not(:empty) {
+    text-align: center;
+    padding-right: 0;
+  }
+}
