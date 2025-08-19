@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         audioPlayer.play();
         clickSound.play();
 
-        nowPlayingDisplay.textContent = `Now Playing: ${songLabel}`;
+        nowPlayingDisplay.textContent = `Now Playing 🎶 : ${songLabel}`;
         subtitle.style.opacity = '0';
         gramophoneDropzone.classList.add('playing');
         playBtn.style.display = 'none';
