@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     // element selector
     const gramophoneDropzone = document.getElementById('gramophone-dropzone');
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //state and helper
     const clickSound = new Audio('music/click.mp3');
-    const isMobile = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
     // initialization
     initialize();
@@ -20,23 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         createFloatingNotes(15);
         setupControls();
         setupSortableDragAndDrop();
-
-        // scroll listener ONLY on mobile devices
-        if (isMobile) {
-            window.addEventListener('scroll', handleStickyGramophone);
-        }
     }
     
-    // Sticky Gramophone on mobile scroll 
-    function handleStickyGramophone() {
-        const scrollThreshold = 200; //pixels to scroll before it becomes sticky
-        if (window.scrollY > scrollThreshold) {
-            gramophoneDropzone.classList.add('gramophone-sticky');
-        } else {
-            gramophoneDropzone.classList.remove('gramophone-sticky');
-        }
-    }
-
     // music and ui
     function playSong(songSrc, songLabel) {
         if (!songSrc) return;
@@ -81,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // drag drop logic + haptic feedback (vibrate)
     function setupSortableDragAndDrop() {
+        const scrollThreshold = 200; // Pixels to scroll before sticky is triggered
+
         new Sortable(recordsContainer, {
             group: {
                 name: 'records',
@@ -90,9 +75,18 @@ document.addEventListener('DOMContentLoaded', () => {
             animation: 150,
             sort: false,
             onStart: function () {
+                // Haptic feedback
                 if (window.navigator && window.navigator.vibrate) {
-                    navigator.vibrate(50); // Haptic feedback!
+                    navigator.vibrate(50);
                 }
+                // Check scroll position and make gramophone sticky
+                if (window.scrollY > scrollThreshold) {
+                    gramophoneDropzone.classList.add('gramophone-sticky');
+                }
+            },
+            onEnd: function () {
+                // NEW: Always remove sticky class when drag ends
+                gramophoneDropzone.classList.remove('gramophone-sticky');
             }
         });
 
