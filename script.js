@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         createFloatingNotes(15);
         setupControls();
         setupSortableDragAndDrop();
+        setupMobileRackToggle();
     }
 
     // music and ui
@@ -76,7 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 put: false
             },
             animation: 150,
-            sort: false
+            sort: false,
+            handle: '.record-image'
             // uncomment this part only if u want portrait mode option -> later on if converted
             //*,
             // onStart: function () {
@@ -122,6 +124,20 @@ document.addEventListener('DOMContentLoaded', () => {
             note.style.animationDuration = (Math.random() * 15 + 10) + 's';
             note.style.animationDelay = Math.random() * 10 + 's';
             document.body.appendChild(note);
+        }
+    }
+
+    function setupMobileRackToggle() {
+        // This logic only runs on mobile-sized screens
+        if (window.innerWidth <= 768) {
+            const toggleBtn = document.getElementById('toggle-rack-btn');
+            const recordRack = document.querySelector('.record-rack');
+
+            if (toggleBtn && recordRack) {
+                toggleBtn.addEventListener('click', () => {
+                    recordRack.classList.toggle('rack-is-open');
+                });
+            }
         }
     }
 });

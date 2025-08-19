@@ -455,3 +455,51 @@ body {
 } 
 
 */
+
+/* for phones there was overlap issue so added collapsible sidebar like button */
+/* Collapsible Sidebar Logic for Mobile */
+@media (max-width: 768px) {
+  .record-rack {
+    /* Adjust initial position and add transition */
+    right: 0;
+    width: 260px; /* Give it a fixed width */
+    transform: translateX(calc(100% - 45px)); /* Hide it, leaving 45px for the button */
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .record-rack.rack-is-open {
+    /* When open, slide it fully into view */
+    transform: translateX(0);
+  }
+
+  .toggle-rack-btn {
+    /* Styles for new button */
+    display: flex; /* Make it visible only on mobile */
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 80px;
+    background: var(--primary-accent);
+    color: var(--bg-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px 0 0 10px;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 11;
+  }
+
+  .record-rack.rack-is-open .toggle-rack-btn span {
+    /* Flip the arrow when open */
+    transform: rotate(180deg);
+  }
+}
+
+/* Hide toggle button on larger screens */
+.toggle-rack-btn {
+  display: none;
+}
