@@ -35,297 +35,302 @@
         <h1>The Retro Gramophone</h1>
         <p class="subtitle">Celebrating 85 Glorious Years</p>
       </header>
+      <main class="main-layout">
+        <section class="hero">
+          <div class="scene">
+            <div id="gramophone-dropzone">
+              <div class="drop-instruction">Drag a record here to begin...</div>
+              <div class="tap-instruction">Tap a record to play...</div>
+              <img
+                src="images/gramophone.png"
+                alt="Gramophone"
+                id="gramophone-img"
+              />
+              <img
+                src="images/vinyl.png"
+                alt="Vinyl Record"
+                id="vinyl-record"
+              />
+              <div class="gramophone-glow"></div>
+            </div>
+          </div>
+        </section>
 
-      <section class="hero">
-        <div class="scene">
-          <div id="gramophone-dropzone">
-            <div class="drop-instruction">Drag a record here to begin...</div>
-            <div class="tap-instruction">Tap a record to play...</div>
-            <img
-              src="images/gramophone.png"
-              alt="Gramophone"
-              id="gramophone-img"
-            />
-            <img src="images/vinyl.png" alt="Vinyl Record" id="vinyl-record" />
-            <div class="gramophone-glow"></div>
+        <div class="record-rack">
+          <div class="rack-header">
+            <h2>Classic Collection</h2>
+            <p class="rack-instruction">
+              Drag a record onto the gramophone to play the chosen track!
+            </p>
+          </div>
+          <div class="records-container">
+            <div
+              class="record-item"
+              data-song="music/song1.mp3"
+              data-label="Abhi Na Jao"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Abhi Na Jao</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song2.mp3"
+              data-label="Aaj Kal Mein"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Aaj Kal Mein</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song3.mp3"
+              data-label="Aasman Ke Neeche"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Aasman Ke Neeche</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song4.mp3"
+              data-label="Accha Ji Main"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Accha Ji Main</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song5.mp3"
+              data-label="Dil Ka Bhanwar"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Dil Ka Bhanwar</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song6.mp3"
+              data-label="Ek But Banaunga"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Ek But Banaunga</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song7.mp3"
+              data-label="Gaata Rahe Mera Dil"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Gaata Rahe Mera Dil</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song8.mp3"
+              data-label="Haal Kaisa Hai"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Haal Kaisa Hai</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song9.mp3"
+              data-label="Hai Apna Dil"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Hai Apna Dil</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song10.mp3"
+              data-label="Kya Se Kya"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Kya Se Kya</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song11.mp3"
+              data-label="Mai Zindagi Ka"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Mai Zindagi Ka</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song12.mp3"
+              data-label="Shokhiyo Mein"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Shokhiyo Mein</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song13.mp3"
+              data-label="Arey Yaar Meri"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Arey Yaar Meri</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song14.mp3"
+              data-label="Chhod Do Aanchal"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Chhod Do Aanchal</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song15.mp3"
+              data-label="Khwaab Ho Tum"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Khwaab Ho Tum</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song16.mp3"
+              data-label="Ankhon Hi Ankhon Mein"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Ankhon Hi Ankhon Mein</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song17.mp3"
+              data-label="Bade Achhe Lagte Hain"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Bade Achhe Lagte Hain</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song18.mp3"
+              data-label="Tere Ghar Ke Saamne"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Tere Ghar Ke Saamne</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song19.mp3"
+              data-label="Jaane Kaha Mera"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Jaane Kaha Mera</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song20.mp3"
+              data-label="Lag Jaa Gale"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Lag Jaa Gale</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song21.mp3"
+              data-label="Suhaana Safar aur Ye Mausam"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Suhaana Safar Aur Ye Mausam</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song22.mp3"
+              data-label="Ek Ladki Bheegi Bhaagi"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Ek Ladki Bheegi Bhaagi</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song23.mp3"
+              data-label="Chura Liya Hai"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Chura Liya Hai</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song24.mp3"
+              data-label="Pal Pal Dil "
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Pal Pal Dil</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song25.mp3"
+              data-label="Ek Pyaar Ka Nagma"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Ek Pyaar Ka Nagma</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song26.mp3"
+              data-label="Kahin Door Jab"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Kahin Door Jab</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song27.mp3"
+              data-label="Ajeeb Daastan"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Ajeeb Daastan</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song28.mp3"
+              data-label="Mere Sapno Ki Rani"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Mere Sapno Ki Rani</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song29.mp3"
+              data-label="Aaja Panchi Akela Hai"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Aaja Panchi Akela Hai</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song30.mp3"
+              data-label="Ankhon Mein Kya Ji"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Ankhon Mein Kya Ji</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song31.mp3"
+              data-label="Jaye To Jaye Kahan"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Jaye To Jaye Kahan</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song32.mp3"
+              data-label="Aye Meri Zohra Zabeen"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Aye Meri Zohra Zabeen</span>
+            </div>
+            <div
+              class="record-item"
+              data-song="music/song33.mp3"
+              data-label="Yeh Sham Mastani"
+            >
+              <img src="images/record1.png" class="record-image" id="record1" />
+              <span class="record-label">Yeh Sham Mastani</span>
+            </div>
           </div>
         </div>
-      </section>
-
-      <div class="record-rack">
-        <div class="rack-header">
-          <h2>Classic Collection</h2>
-          <p class="rack-instruction">
-            Drag a record onto the gramophone to play the chosen track!
-          </p>
-        </div>
-        <div class="records-container">
-          <div
-            class="record-item"
-            data-song="music/song1.mp3"
-            data-label="Abhi Na Jao"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Abhi Na Jao</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song2.mp3"
-            data-label="Aaj Kal Mein"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Aaj Kal Mein</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song3.mp3"
-            data-label="Aasman Ke Neeche"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Aasman Ke Neeche</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song4.mp3"
-            data-label="Accha Ji Main"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Accha Ji Main</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song5.mp3"
-            data-label="Dil Ka Bhanwar"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Dil Ka Bhanwar</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song6.mp3"
-            data-label="Ek But Banaunga"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Ek But Banaunga</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song7.mp3"
-            data-label="Gaata Rahe Mera Dil"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Gaata Rahe Mera Dil</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song8.mp3"
-            data-label="Haal Kaisa Hai"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Haal Kaisa Hai</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song9.mp3"
-            data-label="Hai Apna Dil"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Hai Apna Dil</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song10.mp3"
-            data-label="Kya Se Kya"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Kya Se Kya</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song11.mp3"
-            data-label="Mai Zindagi Ka"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Mai Zindagi Ka</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song12.mp3"
-            data-label="Shokhiyo Mein"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Shokhiyo Mein</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song13.mp3"
-            data-label="Arey Yaar Meri"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Arey Yaar Meri</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song14.mp3"
-            data-label="Chhod Do Aanchal"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Chhod Do Aanchal</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song15.mp3"
-            data-label="Khwaab Ho Tum"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Khwaab Ho Tum</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song16.mp3"
-            data-label="Ankhon Hi Ankhon Mein"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Ankhon Hi Ankhon Mein</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song17.mp3"
-            data-label="Bade Achhe Lagte Hain"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Bade Achhe Lagte Hain</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song18.mp3"
-            data-label="Tere Ghar Ke Saamne"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Tere Ghar Ke Saamne</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song19.mp3"
-            data-label="Jaane Kaha Mera"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Jaane Kaha Mera</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song20.mp3"
-            data-label="Lag Jaa Gale"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Lag Jaa Gale</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song21.mp3"
-            data-label="Suhaana Safar aur Ye Mausam"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Suhaana Safar Aur Ye Mausam</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song22.mp3"
-            data-label="Ek Ladki Bheegi Bhaagi"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Ek Ladki Bheegi Bhaagi</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song23.mp3"
-            data-label="Chura Liya Hai"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Chura Liya Hai</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song24.mp3"
-            data-label="Pal Pal Dil "
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Pal Pal Dil</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song25.mp3"
-            data-label="Ek Pyaar Ka Nagma"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Ek Pyaar Ka Nagma</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song26.mp3"
-            data-label="Kahin Door Jab"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Kahin Door Jab</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song27.mp3"
-            data-label="Ajeeb Daastan"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Ajeeb Daastan</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song28.mp3"
-            data-label="Mere Sapno Ki Rani"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Mere Sapno Ki Rani</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song29.mp3"
-            data-label="Aaja Panchi Akela Hai"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Aaja Panchi Akela Hai</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song30.mp3"
-            data-label="Ankhon Mein Kya Ji"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Ankhon Mein Kya Ji</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song31.mp3"
-            data-label="Jaye To Jaye Kahan"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Jaye To Jaye Kahan</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song32.mp3"
-            data-label="Aye Meri Zohra Zabeen"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Aye Meri Zohra Zabeen</span>
-          </div>
-          <div
-            class="record-item"
-            data-song="music/song33.mp3"
-            data-label="Yeh Sham Mastani"
-          >
-            <img src="images/record1.png" class="record-image" id="record1" />
-            <span class="record-label">Yeh Sham Mastani</span>
-          </div>
-        </div>
-      </div>
+      </main>
       <button id="toggle-rack-btn" class="toggle-rack-btn">
         <span class="toggle-arrow">&lt;</span>
       </button>

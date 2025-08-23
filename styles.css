@@ -42,7 +42,7 @@ body {
 }
 .vintage-overlay {
   background: radial-gradient(circle, transparent 80%, var(--bg-color) 95%);
-  opacity: 0.7;
+  opacity: 0.5;
   z-index: 100;
 }
 
@@ -168,8 +168,8 @@ body {
   height: 120%;
   background: radial-gradient(
     circle,
-    rgba(247, 225, 181, 0.2) 0%,
-    transparent 70%
+    rgba(247, 225, 181, 0.2) 80%,
+    transparent 80%
   );
   border-radius: 50%;
   opacity: 0;
@@ -197,10 +197,6 @@ body {
 
 /* records/track shelf */
 .record-rack {
-  position: fixed;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
   background: rgba(26, 18, 11, 0.8);
   border: 2px solid var(--primary-accent);
   border-radius: 10px;
@@ -210,6 +206,7 @@ body {
   max-height: 80vh;
   overflow-y: auto;
 }
+
 .rack-header {
   text-align: center;
   margin-bottom: 20px;
@@ -334,7 +331,7 @@ body {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  background: rgba(26, 18, 11, 0.7);
+  background: rgba(26, 18, 11, 0.9);
   border: 1px solid var(--primary-accent);
   padding: 15px;
   border-radius: 5px;
@@ -441,7 +438,7 @@ body {
 }
 
 /* This media query will show the overlay ONLY on mobile-sized screens in portrait mode */
-@media screen and (max-width: 768px) and (orientation: portrait) {
+@media screen and (max-width: 1024px) and (orientation: portrait) {
   #rotate-device-overlay {
     display: flex; /* Show the overlay */
   }
@@ -558,13 +555,42 @@ body {
   #gramophone-img {
     max-width: 550px; /* Make the gramophone larger */
   }
-
-  .record-rack {
-    right: 50px; /* Give it more space from the edge */
-  }
-
   .handwritten-note {
     bottom: 30px;
     left: 30px;
+  }
+}
+
+
+/* For tablets and desktops (1025px and wider) */
+@media (min-width: 1025px) {
+  .main-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .hero {
+    flex: 1; /* Allows the gramophone to take up the available space */
+    max-width: 800px;
+  }
+
+  .record-rack {
+    position: relative; /* Overrides fixed positioning from mobile styles */
+    width: 300px; 
+    max-height: 60vh; /* Adjust height for the new layout */
+  }
+}
+
+/* For smaller screens (1024px and narrower), we put the fixed position back */
+@media (max-width: 1024px) {
+  .record-rack {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto; /* Allow width to be natural */
   }
 }
