@@ -308,6 +308,12 @@ body {
   transform: translateY(-2px);
 }
 
+.controls button svg {
+  width: 1em; /* icon size relative to the button's font size */
+  height: 1em;
+  margin-right: 8px; /*space between the icon and the text */
+}
+
 /* remove blue bg for pause button on phones */
 .controls button:focus,
 .controls button:active {
