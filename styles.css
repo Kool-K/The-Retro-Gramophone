@@ -308,9 +308,9 @@ body {
 /* remove blue bg for pause button on phones */
 .controls button:focus,
 .controls button:active {
-  outline: none;
-  background-color: #3b2c1a; /* match your design */
-  box-shadow: 0 4px 8px var(--shadow-color);
+  outline: none !important;
+  box-shadow: 0 4px 8px var(--shadow-color) !important;
+  background-color: #3b2c1a !important; /* match design */
 }
 
 /* remove blue bg for pause button on phones */
