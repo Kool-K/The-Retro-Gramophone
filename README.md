@@ -3,12 +3,16 @@
 A beautiful, interactive music player designed to bring the magic of classic tunes to the grandparents we love. Built with ❤️, and now available for everyone to share!
 
 ### 🚀 View the Live Site Here! 👉 (https://kool-k.github.io/The-Retro-Gramophone/) 
+(Please note: To respect copyright, the audio has been removed from this live demo. The site is for visual demonstration only and will be silent.)
 
 ## The Story Behind the Music
 
 This project started as a special 85th birthday gift for my Ajoba (grandfather). His lifelong love for old, classic melodies from the golden era inspired me to create a digital 'gramophone' where he could listen to his favorite songs with a simple, nostalgic interface.
 
 The joy it brought him was infectious! It made me realize that this could be a wonderful gift for many other parents, grandparents, and lovers of retro music. So, I've cleaned it up and turned it into a template for anyone to use, customize, and share with their own music-loving family and friends!
+
+⚠️ A Note on the Live Demo Audio
+To respect copyright laws, the original .mp3 audio files are not included in this public repository or the live demo. The live site is for demonstration of the UI and functionality only. To hear the music, please follow the setup instructions below and use your own legally owned audio files on your local machine.
 
 ## ✨ Features
 
